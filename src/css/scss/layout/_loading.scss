@@ -1,0 +1,374 @@
+.wrap {
+    position: relative;
+    overflow-x: hidden;
+
+    &.loading {
+        height: calc(var(--vh, 1vh) * 100);
+        max-height: calc(var(--vh, 1vh) * 100);
+        overflow: hidden;
+
+        .intro-box {
+            height: calc(var(--vh, 1vh) * 100);
+        }
+
+        .logo {
+            width: 312px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: default;
+        }
+    }
+}
+
+.intro-box {
+    width: 100%;
+
+    @include ios {
+        height: -webkit-fill-available;
+    }
+
+    h1 {
+        display: inherit;
+    }
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: $header;
+
+    &.end {
+        transition: height 0.5s;
+    }
+
+    @at-root .light-theme & {
+        background-color: rgba(155, 155, 155, 0.1);
+    }
+
+    &__wrap {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        @include flexCenter(space-between);
+        padding: 10px 40px;
+
+        @include mobs {
+            padding: 10px 20px;
+        }
+    }
+
+    &.end {
+        h1 {
+            @include safariOnly {
+                width: 52px;
+                height: 41px;
+                background-color: transparent;
+            }
+        }
+
+        .logo {
+            position: static;
+            transform: translate(0);
+            margin-left: 0 !important;
+            cursor: pointer;
+        }
+
+
+        .nav {
+            display: block;
+            opacity: 1;
+
+            @include tablet {
+                display: none;
+            }
+        }
+
+        .hamburger {
+            @include tablet {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.menu-open {
+        height: calc((var(--vh, 1vh) * 100) + 60px) !important;
+
+        .nav {
+            width: 100%;
+            display: block;
+            transform: translate(-50%, -50%) !important;
+            opacity: 1 !important;
+
+            .gnb {
+                flex-direction: column;
+                gap: 14px;
+                text-align: center;
+                font-size: 46px;
+
+                .is-active .gnb__item {
+                    @include get-color(color, color-mint);
+                }
+            }
+        }
+    }
+}
+
+.top-obj {
+    position: relative;
+    transform: rotate(-24deg);
+}
+
+.light-theme .top-obj {
+    filter: brightness(0.8);
+}
+
+.logo {
+    width: 60px;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.action {
+    &.logo {
+        &__eye-l {
+            animation: left_eye 3s 2s infinite;
+        }
+
+        &__eye-r {
+            animation: right_eye 3s 2s infinite;
+        }
+    }
+
+    @keyframes left_eye {
+        0% {
+            transform: translateY(0px);
+        }
+
+        10% {
+            transform: translateY(-4px);
+        }
+
+        20% {
+            transform: translateY(2px);
+        }
+
+        30% {
+            transform: translateY(-1px);
+        }
+
+        35% {
+            transform: translateY(0px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    @keyframes right_eye {
+        0% {
+            transform: translateY(0px);
+        }
+
+        20% {
+            transform: translateY(-4px);
+        }
+
+        30% {
+            transform: translateY(2px);
+        }
+
+        40% {
+            transform: translateY(-1px);
+        }
+
+        45% {
+            transform: translateY(0px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+}
+
+.nav {
+    opacity: 0;
+    @include positionCenter;
+
+    @include tablet {
+        display: none;
+        position: absolute;
+    }
+}
+
+.gnb {
+    $gnb: &;
+    $transition: 0.4s;
+
+    position: relative;
+    display: flex;
+    font-size: 16px;
+
+    &__item {
+        display: block;
+        padding: 4px 24px;
+        font-weight: 400;
+
+        &:hover {
+            opacity: 0.5;
+            transition: $transition;
+        }
+
+        &.is-active {
+            @include get-color(color, color-bg);
+        }
+
+        #{$gnb}__list.is-active & {
+            @include get-color(color, color-bg);
+            opacity: 1;
+            transition: $transition;
+        }
+    }
+
+    .active-bar {
+        height: 100%;
+        position: absolute;
+        left: 0;
+        @include get-color(background-color, color-mint);
+        border-radius: 20px;
+        z-index: -1;
+        transition: $transition;
+
+        @include tablet {
+            background-color: transparent !important;
+        }
+    }
+}
+
+.hamburger {
+    $hamburger: &;
+
+    width: 26px;
+    height: 18px;
+    opacity: 0;
+    transition: 0.2s;
+
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    @include safariOnly {
+        display: block;
+        flex-direction: unset;
+
+        .line+.line {
+            margin-top: 5px;
+        }
+    }
+
+    &.is-open {
+
+        .line {
+            &:nth-child(1) {
+                transform: translateY(7px) rotate(46deg);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                transform: translateY(-9px) rotate(-46deg);
+
+                @include safariOnly {
+                    transform: translateY(-7px) rotate(-46deg);
+                }
+            }
+        }
+    }
+
+    .line {
+        display: block;
+        width: 100%;
+        height: 2px;
+        @include get-color(background-color, color-font);
+        transition: 0.3s;
+    }
+}
+
+.toggle {
+    &__box {
+        display: flex;
+        width: 56px;
+        @include get-color(background-color, color-toggle);
+        border-radius: 14px;
+        opacity: 0;
+        transition: 0.3s;
+
+        @include mobs {
+            right: 20px;
+        }
+    }
+
+    &__item {
+        display: none;
+
+        &:checked+.toggle__btn::after {
+            transform: translate(32px, -50%);
+        }
+    }
+
+    &__btn {
+        width: 100%;
+        height: 26px;
+        position: relative;
+        z-index: 100;
+        cursor: pointer;
+
+        &::after {
+            @include pseudo('', 20px, 20px);
+            position: absolute;
+            top: 50%;
+            transform: translate(4px, -50%);
+            background-color: #ffffff;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+    }
+
+    &__icon {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        @include flexCenter(space-evenly);
+        padding: 0px 4px;
+
+        .item {
+            $size: 18px;
+            width: $size;
+            height: $size;
+            background: url('#{$path-image}/ico-toggle.png') no-repeat top / cover;
+            opacity: 0;
+
+            &.dark {
+                background-position-y: bottom;
+            }
+
+            &.on {
+                opacity: 1;
+            }
+        }
+    }
+}

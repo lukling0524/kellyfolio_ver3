@@ -1,0 +1,119 @@
+.svg-color {
+    @include get-color(stroke, color-font);
+}
+
+.font-accent {
+    @include get-color(color, color-mint);
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 14px 58px 14px 34px;
+    font-weight: 800;
+    @include get-color(color, color-bg);
+    border-radius: 10px;
+    @include get-color(background-color, color-font);
+    overflow: hidden;
+
+    &::before {
+        @include pseudo('', 0, 100%);
+        @include get-color(background-color, color-mint);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.3s;
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+        &::before {
+            width: 100%;
+        }
+    }
+
+    &.no-icon {
+        padding: 14px 58px;
+    }
+
+    &__sm {
+        padding: 10px 50px 10px 30px;
+
+        &.no-icon {
+            padding: 10px 30px;
+        }
+    }
+
+    &__text {
+        position: relative;
+        z-index: 10;
+    }
+
+    >* {
+        position: relative;
+    }
+
+    .ico-link {
+        $size: 34px;
+
+        display: block;
+        width: $size;
+        height: $size;
+        position: absolute;
+        top: 14px;
+        right: 20px;
+
+        @include mobs {
+            top: 11px;
+        }
+
+        &__arrow {
+            transition: 0.2s;
+        }
+
+        .svg-color {
+            @include get-color(stroke, color-bg);
+            @include get-color(fill, color-bg);
+        }
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+        .ico-link__arrow {
+            animation: arrow 1s infinite both;
+        }
+    }
+}
+
+
+@keyframes arrow {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    30% {
+        transform: translate(4px, -4px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+
+// 터치하는 기기일 때 스타일 대응
+.touch-device {
+    .btn {
+
+        &:hover,
+        &:focus,
+        &:active {
+            &::before {
+                width: 0;
+            }
+        }
+
+    }
+}
