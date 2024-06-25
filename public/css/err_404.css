@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==========================================================
 =============================================================
 =============================================================
@@ -6,9 +7,7 @@
 =============================================================
 =============================================================
 =============================================================*/
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap");
 *,
 *::before,
 *::after {
@@ -97,8 +96,7 @@ button {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: 'Pretendard', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic',
-    sans-serif;
+  font-family: "Pretendard", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", sans-serif;
   font-size: 100%;
   line-height: 1.6;
   outline: none !important;
@@ -113,8 +111,8 @@ i {
 a,
 area,
 button,
-[role='button'],
-input:not([type='range']),
+[role=button],
+input:not([type=range]),
 label,
 select,
 summary,
@@ -158,7 +156,6 @@ textarea {
   font-family: inherit;
   box-sizing: border-box;
   appearance: none;
-  //@include scrollbar;
 }
 
 select {
@@ -196,8 +193,7 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100%;
-  font-family: 'Pretendard', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic',
-    sans-serif;
+  font-family: "Pretendard", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", sans-serif;
   text-align: left;
   -webkit-font-smoothing: antialiased;
   word-break: keep-all;
@@ -215,4 +211,48 @@ a:focus {
 .text-hide {
   font-size: 0 !important;
   text-indent: -9999px;
+}
+
+body {
+  color: #333;
+  background: #eceff1;
+  font-size: 16px;
+}
+
+.err_404 {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.err_404 .message {
+  padding: 30px 60px;
+  border-radius: 20px;
+  background-color: #fff;
+  text-align: center;
+}
+.err_404 .message h2 {
+  letter-spacing: 4px;
+  color: #ffa100;
+  font-size: 96px;
+  font-weight: 800;
+}
+.err_404 .message .desc {
+  margin: 20px 0 40px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.err_404 .btn-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.err_404 .btn-box .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 161, 0, 0.6);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.err_404 .btn-box .btn:hover {
+  background-color: rgba(255, 161, 0, 0.6);
 }

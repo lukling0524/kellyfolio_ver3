@@ -2,29 +2,26 @@
 // media query
 // -------
 
-
 @mixin laptop {
-    @media (max-width: 1400px) {
-        @content;
-    }
+  @media (max-width: 1400px) {
+    @content;
+  }
 }
 
-
 @mixin tablet {
-    @media (max-width: 1100px) {
-        @content;
-    }
+  @media (max-width: 1100px) {
+    @content;
+  }
 }
 
 @mixin tablet-sm {
-    @media (max-width: 768px) {
-        @content;
-    }
+  @media (max-width: 768px) {
+    @content;
+  }
 }
 
-
 @mixin mobs {
-    @media (max-width: 500px) {
-        @content;
-    }
+  @media (max-width: 500px) {
+    @content;
+  }
 }

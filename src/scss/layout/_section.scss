@@ -1,1046 +1,1028 @@
 // 섹션간 거리 변수 선언
 $sectionSpace: 160px;
 $sectionLaptop: 100px;
-$sectionSpaceMobile : 60px;
-
+$sectionSpaceMobile: 60px;
 
 .contents {
-    position: relative;
-    max-width: 1600px;
-    margin: 0 auto 0;
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto 0;
 }
 
 // 섹션 공통
 .section {
-    &__container {
-        padding: 0 60px;
+  &__container {
+    padding: 0 60px;
 
-        @include tablet {
-            padding: 0 30px;
-        }
-
-        @include mobs {
-            padding: 0 20px;
-        }
+    @include tablet {
+      padding: 0 30px;
     }
 
-    &__title {
-        font-size: 56px;
-        font-weight: 700;
-
-        @include laptop {
-            font-size: 46px;
-        }
-
-        @include tablet {
-            font-size: 40px;
-        }
-
-        @include tablet-sm {
-            font-size: 30px;
-        }
-
-        // @include mobs {
-        //     font-size: 34px;
-        // }
+    @include mobs {
+      padding: 0 20px;
     }
+  }
+
+  &__title {
+    font-size: 56px;
+    font-weight: 700;
+
+    @include laptop {
+      font-size: 46px;
+    }
+
+    @include tablet {
+      font-size: 40px;
+    }
+
+    @include tablet-sm {
+      font-size: 30px;
+    }
+
+    // @include mobs {
+    //     font-size: 34px;
+    // }
+  }
 }
 
 // 자기소개 섹션
 .about {
+  position: relative;
+
+  .scrollmagic-pin-spacer {
+    padding: 0 !important;
+  }
+
+  &__cont {
     position: relative;
+    height: calc(var(--vh, 1vh) * 100);
+  }
 
-    .scrollmagic-pin-spacer {
-        padding: 0 !important;
-    }
+  &__intro {
+    height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
 
-    &__cont {
-        position: relative;
+    @include tablet-sm {
+      padding: 100px 0;
+      justify-content: center;
+      flex-direction: column;
+
+      @include safariOnly {
         height: calc(var(--vh, 1vh) * 100);
+      }
+    }
+  }
+
+  &__visual {
+    position: relative;
+    flex: 1;
+
+    @include mobs {
+      flex: auto;
+    }
+  }
+
+  .avata {
+    display: block;
+    width: 85%;
+    max-width: 398px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @include tablet-sm {
+      max-width: 250px;
     }
 
-    &__intro {
-        height: calc(100vh - 60px);
-        display: flex;
-        align-items: center;
+    &__sequence {
+      width: 100%;
+    }
+  }
 
-        @include tablet-sm {
-            padding: 100px 0;
-            justify-content: center;
-            flex-direction: column;
+  &__title {
+    position: relative;
+    flex: 1;
 
-            @include safariOnly {
-                height: calc(var(--vh, 1vh) * 100);
-            }
-        }
+    @include mobs {
+      flex: auto;
     }
 
-    &__visual {
-        position: relative;
-        flex: 1;
+    .section__title {
+      margin-bottom: 40px;
 
-        @include mobs {
-            flex: auto;
-        }
+      @media (max-width: 830px) {
+        font-size: 36px;
+      }
+
+      @include tablet-sm {
+        // font-size: 30px;
+        margin: 10% 0;
+        font-size: 32px;
+        text-align: center;
+      }
+
+      // @media (max-width: 638px) {
+      //     font-size: 23px;
+      // }
+
+      @include mobs {
+        margin: 10% 0;
+        font-size: 32px;
+        text-align: center;
+      }
     }
 
-    .avata {
-        display: block;
-        width: 85%;
-        max-width: 398px;
-        margin: 0 auto;
-        border-radius: 50%;
-        overflow: hidden;
+    .btn {
+      @include tablet-sm {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
 
-        @include tablet-sm {
-            max-width: 250px;
-        }
+  &__inner {
+    height: calc(var(--vh, 1vh) * 100);
+    @include get-color(background-color, color-mint);
+  }
 
+  &__text {
+    @include flexCenter(center);
+    padding-top: 50px;
+    padding-bottom: $sectionSpace;
 
-        &__sequence {
-            width: 100%;
-        }
+    @include mobs {
+      padding-bottom: $sectionSpaceMobile;
     }
 
-    &__title {
-        position: relative;
-        flex: 1;
-
-        @include mobs {
-            flex: auto;
-        }
-
-        .section__title {
-            margin-bottom: 40px;
-
-            @media (max-width: 830px) {
-                font-size: 36px;
-            }
-
-            @include tablet-sm {
-                // font-size: 30px;
-                margin: 10% 0;
-                font-size: 32px;
-                text-align: center;
-            }
-
-            // @media (max-width: 638px) {
-            //     font-size: 23px;
-            // }
-
-            @include mobs {
-                margin: 10% 0;
-                font-size: 32px;
-                text-align: center;
-            }
-        }
-
-        .btn {
-            @include tablet-sm {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
+    &--box {
+      display: inline-block;
     }
 
-    &__inner {
-        height: calc(var(--vh, 1vh) * 100);
-        @include get-color(background-color, color-mint);
+    &--item + &--item {
+      margin-top: 30px;
     }
-
-    &__text {
-        @include flexCenter(center);
-        padding-top: 50px;
-        padding-bottom: $sectionSpace;
-
-        @include mobs {
-            padding-bottom: $sectionSpaceMobile;
-        }
-
-        &--box {
-            display: inline-block;
-        }
-
-        &--item+&--item {
-            margin-top: 30px;
-        }
-    }
+  }
 }
 
 // 이렇게 일합니다 섹션
 .howtowork {
-    $howtowork: &;
+  $howtowork: &;
 
-    .section {
-        &__container {
-            position: relative;
-            width: 100%;
-            display: flex;
-            align-items: flex-start;
-            padding-top: $sectionSpace;
-            padding-bottom: $sectionSpace;
+  .section {
+    &__container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      padding-top: $sectionSpace;
+      padding-bottom: $sectionSpace;
 
-            @include laptop {
-                padding-top: $sectionLaptop;
-                padding-bottom: $sectionLaptop;
-            }
+      @include laptop {
+        padding-top: $sectionLaptop;
+        padding-bottom: $sectionLaptop;
+      }
 
-            @include tablet-sm {
-                flex-direction: column;
-            }
+      @include tablet-sm {
+        flex-direction: column;
+      }
 
-            @include mobs {
-                padding-top: 80px;
-                padding-bottom: $sectionSpaceMobile;
-            }
-        }
-
-        &__title {
-            position: relative;
-            flex: 2;
-            text-align: center;
-
-            @include tablet-sm {
-                width: 100%;
-                position: sticky;
-                top: 90px;
-                z-index: 100;
-
-                &::before {
-                    @include pseudo('', 100%, 160px);
-                    position: absolute;
-                    top: -90px;
-                    left: 0;
-                    @include get-color(background-color, color-bg);
-                    z-index: -1;
-                }
-            }
-
-            @include mobs {
-                top: 60px;
-
-                &::before {
-                    height: 120px;
-                    top: -60px;
-                }
-            }
-
-            &::after {
-                $size: 60px;
-
-                @include pseudo('', $size, $size);
-                position: absolute;
-                top: -52px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: url('#{$path-image}/ico-bulb.png') no-repeat center / cover;
-                opacity: 0.4;
-
-                @include tablet-sm {
-                    $size: 40px;
-                    @include pseudo('', $size, $size);
-                    display: inline-block;
-                    position: relative;
-                    top: 9px;
-                    right: 0;
-                    left: unset;
-                    transform: translateX(0);
-                    opacity: 1;
-                    animation: flick 1.5s linear infinite both;
-                }
-            }
-
-            &.is-active::after {
-                opacity: 1;
-                animation: flick 1.5s linear infinite both;
-
-                @keyframes flick {
-
-                    0%,
-                    100% {
-                        opacity: 1;
-                    }
-
-                    20% {
-                        opacity: 0.4;
-                    }
-                }
-
-            }
-        }
+      @include mobs {
+        padding-top: 80px;
+        padding-bottom: $sectionSpaceMobile;
+      }
     }
 
+    &__title {
+      position: relative;
+      flex: 2;
+      text-align: center;
 
-    .scrollmagic-pin-spacer {
-        flex: 2;
-
-        .section__title {
-            width: auto;
-        }
-    }
-
-    &__wrap {
-        position: relative;
-        flex: 3;
-        margin-top: 220px;
-
-        @include mobs {
-            margin-top: 80px;
-        }
-    }
-
-    &__item+&__item {
-        margin-top: 140px;
-
-        @include mobs {
-            margin-top: 80px;
-        }
-    }
-
-    &__main {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-
-        @include mobs {
-            justify-content: center;
-            gap: 8px;
-            margin-right: 32px;
-        }
-
-        &--tit {
-            font-size: 24px;
-            font-weight: 700;
-
-            @include mobs {
-                font-size: 22px;
-            }
-        }
-    }
-
-    &__icon {
-        $size: 32px;
-
-        display: block;
-        width: $size;
-        height: $size;
-        background: url('#{$path-image}/ico-howtowork.png') no-repeat top / cover;
-
-        // how to work 섹션의 리스트 타이틀 불렛 아이콘
-        @for $i from 1 through 4 {
-
-            // result : .howtowork__item:nth-child(1) .howtowork__icon...
-            @at-root #{$howtowork}__item:nth-child(#{$i}) #{$howtowork}__icon {
-                background-position-y: -$size*($i - 1);
-            }
-        }
-
-        @include mobs {
-            $size: 24px;
-
-            width: $size;
-            height: $size;
-
-            @for $i from 1 through 4 {
-                @at-root #{$howtowork}__item:nth-child(#{$i}) #{$howtowork}__icon {
-                    background-position-y: -$size*($i - 1);
-                }
-            }
-        }
-
-        @include safariOnly {
-            margin-right: 12px;
-
-            @include mobs {
-                margin-right: 8px;
-            }
-        }
-    }
-
-    &__sub {
-        margin-top: 18px;
-        margin-left: 65px;
-
-        @include mobs {
-            margin-left: 20px;
-        }
-    }
-
-    &__list {
-        position: relative;
-
-        &+& {
-            margin-top: 10px;
-        }
+      @include tablet-sm {
+        width: 100%;
+        position: sticky;
+        top: 90px;
+        z-index: 100;
 
         &::before {
-            $size: 6px;
-            @include pseudo('', $size, $size);
-            position: absolute;
-            top: 12px;
-            left: -17px;
-            border-radius: 50%;
-            @include get-color(background-color, color-mint);
-
-            @include mobs {
-                top: 8px;
-            }
+          @include pseudo('', 100%, 160px);
+          position: absolute;
+          top: -90px;
+          left: 0;
+          @include get-color(background-color, color-bg);
+          z-index: -1;
         }
+      }
+
+      @include mobs {
+        top: 60px;
+
+        &::before {
+          height: 120px;
+          top: -60px;
+        }
+      }
+
+      &::after {
+        $size: 60px;
+
+        @include pseudo('', $size, $size);
+        position: absolute;
+        top: -52px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: url('#{$path-image}/ico-bulb.png') no-repeat center / cover;
+        opacity: 0.4;
+
+        @include tablet-sm {
+          $size: 40px;
+          @include pseudo('', $size, $size);
+          display: inline-block;
+          position: relative;
+          top: 9px;
+          right: 0;
+          left: unset;
+          transform: translateX(0);
+          opacity: 1;
+          animation: flick 1.5s linear infinite both;
+        }
+      }
+
+      &.is-active::after {
+        opacity: 1;
+        animation: flick 1.5s linear infinite both;
+
+        @keyframes flick {
+          0%,
+          100% {
+            opacity: 1;
+          }
+
+          20% {
+            opacity: 0.4;
+          }
+        }
+      }
     }
+  }
+
+  .scrollmagic-pin-spacer {
+    flex: 2;
+
+    .section__title {
+      width: auto;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+    flex: 3;
+    margin-top: 220px;
+
+    @include mobs {
+      margin-top: 80px;
+    }
+  }
+
+  &__item + &__item {
+    margin-top: 140px;
+
+    @include mobs {
+      margin-top: 80px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    @include mobs {
+      justify-content: center;
+      gap: 8px;
+      margin-right: 32px;
+    }
+
+    &--tit {
+      font-size: 24px;
+      font-weight: 700;
+
+      @include mobs {
+        font-size: 22px;
+      }
+    }
+  }
+
+  &__icon {
+    $size: 32px;
+
+    display: block;
+    width: $size;
+    height: $size;
+    background: url('#{$path-image}/ico-howtowork.png') no-repeat top / cover;
+
+    // how to work 섹션의 리스트 타이틀 불렛 아이콘
+    @for $i from 1 through 4 {
+      // result : .howtowork__item:nth-child(1) .howtowork__icon...
+      @at-root #{$howtowork}__item:nth-child(#{$i}) #{$howtowork}__icon {
+        background-position-y: -$size * ($i - 1);
+      }
+    }
+
+    @include mobs {
+      $size: 24px;
+
+      width: $size;
+      height: $size;
+
+      @for $i from 1 through 4 {
+        @at-root #{$howtowork}__item:nth-child(#{$i}) #{$howtowork}__icon {
+          background-position-y: -$size * ($i - 1);
+        }
+      }
+    }
+
+    @include safariOnly {
+      margin-right: 12px;
+
+      @include mobs {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__sub {
+    margin-top: 18px;
+    margin-left: 65px;
+
+    @include mobs {
+      margin-left: 20px;
+    }
+  }
+
+  &__list {
+    position: relative;
+
+    & + & {
+      margin-top: 10px;
+    }
+
+    &::before {
+      $size: 6px;
+      @include pseudo('', $size, $size);
+      position: absolute;
+      top: 12px;
+      left: -17px;
+      border-radius: 50%;
+      @include get-color(background-color, color-mint);
+
+      @include mobs {
+        top: 8px;
+      }
+    }
+  }
 }
 
 // 프로젝트 섹션
 .project {
-    $project: &;
+  $project: &;
 
-    .section {
-        &__container {
-            width: 100%;
-            @include flexCenter(center);
-            flex-direction: column;
-            padding-top: $sectionSpace;
-            padding-bottom: $sectionSpace;
+  .section {
+    &__container {
+      width: 100%;
+      @include flexCenter(center);
+      flex-direction: column;
+      padding-top: $sectionSpace;
+      padding-bottom: $sectionSpace;
 
+      @include laptop {
+        padding-top: $sectionLaptop;
+        padding-bottom: $sectionLaptop;
+      }
 
-            @include laptop {
-                padding-top: $sectionLaptop;
-                padding-bottom: $sectionLaptop;
-            }
-
-            @include mobs {
-                padding-top: $sectionSpaceMobile;
-                padding-bottom: $sectionSpaceMobile;
-            }
-        }
-
-        &__title {
-            @include mobs {
-                @include safariOnly {
-                    margin-bottom: 30px;
-                }
-            }
-        }
-    }
-
-    &__wrap {
-        width: 100%;
-        @include flexCenter(space-evenly);
-
-        @include tablet-sm {
-            flex-direction: column;
-            gap: 70px;
-        }
-    }
-
-    &__grid {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
-        margin: 120px 0 80px;
-
-        @media (max-width: 1279px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @media (max-width: 840px) {
-            max-width: 340px;
-            grid-template-columns: 1fr;
-        }
-
-
-        @include mobs {
-            margin: 80px 0 $sectionSpaceMobile;
-        }
-    }
-
-    &__item {
-        height: 340px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 2px 8px 9px 3px rgba(19, 19, 19, 0.3);
-        background-color: rgba($color: #fff, $alpha: 0.1);
-        transition: 0.2s;
-
-        @media (max-width: 949px) {
-            height: 300px;
-        }
-
-        @include mobs {
-            height: 280px;
-        }
-
-        &:hover {
-            transform: scale(1.02);
-            box-shadow: 2px 8px 9px 3px rgba(19, 19, 19, 0.45);
-            background-color: rgba($color: #fff, $alpha: 0.12);
-        }
-    }
-
-    &__icon {
-        $size: 40px;
-
-        display: block;
-        width: $size;
-        height: $size;
-        background: url('#{$path-image}/ico-folder.png') top / cover no-repeat;
-
-        #{$project}__item:hover & {
-            background-position: bottom;
-        }
+      @include mobs {
+        padding-top: $sectionSpaceMobile;
+        padding-bottom: $sectionSpaceMobile;
+      }
     }
 
     &__title {
-        font-weight: 600;
+      @include mobs {
+        @include safariOnly {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  &__wrap {
+    width: 100%;
+    @include flexCenter(space-evenly);
+
+    @include tablet-sm {
+      flex-direction: column;
+      gap: 70px;
+    }
+  }
+
+  &__grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin: 120px 0 80px;
+
+    @media (max-width: 1279px) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    &__detail {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        margin: 10px 0;
-        font-size: 14px;
+    @media (max-width: 840px) {
+      max-width: 340px;
+      grid-template-columns: 1fr;
+    }
 
+    @include mobs {
+      margin: 80px 0 $sectionSpaceMobile;
+    }
+  }
 
-        @media (max-width: 949px) {
-            display: flex;
-            justify-content: space-between;
-            margin: 16px 0;
-        }
+  &__item {
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 2px 8px 9px 3px rgba(19, 19, 19, 0.3);
+    background-color: rgba($color: #fff, $alpha: 0.1);
+    transition: 0.2s;
+
+    @media (max-width: 949px) {
+      height: 300px;
+    }
+
+    @include mobs {
+      height: 280px;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 2px 8px 9px 3px rgba(19, 19, 19, 0.45);
+      background-color: rgba($color: #fff, $alpha: 0.12);
+    }
+  }
+
+  &__icon {
+    $size: 40px;
+
+    display: block;
+    width: $size;
+    height: $size;
+    background: url('#{$path-image}/ico-folder.png') top / cover no-repeat;
+
+    #{$project}__item:hover & {
+      background-position: bottom;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 10px 0;
+    font-size: 14px;
+
+    @media (max-width: 949px) {
+      display: flex;
+      justify-content: space-between;
+      margin: 16px 0;
+    }
+
+    @include mobs {
+      display: block;
+    }
+  }
+
+  &__skill {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    @include safariOnly {
+      gap: 0px;
+    }
+
+    &--list + &--list {
+      @include safariOnly {
+        margin-left: 14px;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    @include mobs {
+      gap: 20px;
+    }
+
+    @include safariOnly {
+      gap: 0;
+    }
+
+    .btn + .btn {
+      @include safariOnly {
+        margin-left: 30px;
 
         @include mobs {
-            display: block;
+          margin-left: 20px;
         }
+      }
     }
 
-    &__skill {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
+    .link__icon {
+      $size: 20px;
 
-        @include safariOnly {
-            gap: 0px;
-        }
+      display: inline-block;
+      width: $size;
+      height: $size;
+      position: absolute;
+      right: $size;
 
-        &--list+&--list {
-            @include safariOnly {
-                margin-left: 14px;
-            }
-        }
+      background: url('#{$path-image}/ico-project.png') no-repeat top / cover;
+
+      @include mobs {
+        right: 15px;
+      }
+
+      &--link {
+        background-position-y: bottom;
+      }
     }
 
-    &__link {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
+    .btn__sm {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
 
-        @include mobs {
-            gap: 20px;
-        }
+      @include mobs {
+        padding-left: 20px;
+        padding-right: 40px;
+      }
+    }
+  }
 
-        @include safariOnly {
-            gap: 0;
-        }
+  &__view-more {
+    $size: 50px;
 
-        .btn+.btn {
-            @include safariOnly {
-                margin-left: 30px;
+    width: $size;
+    height: $size;
+    @include flexCenter(center);
+    padding: 0;
+    border-radius: 100%;
+    @include get-color(background-color, color-font);
+    transition: 0.5s;
 
-                @include mobs {
-                    margin-left: 20px;
-                }
-            }
-        }
+    // [view more]버튼 닫혀있을 때 호버
+    &:hover,
+    &:focus-visible {
+      @include get-color(background-color, color-mint);
+      transform: scale(1.1);
 
-        .link__icon {
-            $size: 20px;
-
-            display: inline-block;
-            width: $size;
-            height: $size;
-            position: absolute;
-            right: $size;
-
-            background: url('#{$path-image}/ico-project.png') no-repeat top / cover;
-
-
-            @include mobs {
-                right: 15px;
-            }
-
-            &--link {
-                background-position-y: bottom;
-            }
-        }
-
-        .btn__sm {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-
-            @include mobs {
-                padding-left: 20px;
-                padding-right: 40px;
-            }
-        }
+      .line.rotate {
+        transform: translate(-50%, -50%) rotate(270deg);
+      }
     }
 
-    &__view-more {
-        $size: 50px;
-
-        width: $size;
-        height: $size;
-        @include flexCenter(center);
-        padding: 0;
-        border-radius: 100%;
-        @include get-color(background-color, color-font);
-        transition: 0.5s;
-
-        // [view more]버튼 닫혀있을 때 호버
-        &:hover,
-        &:focus-visible {
-            @include get-color(background-color, color-mint);
-            transform: scale(1.1);
-
-            .line.rotate {
-                transform: translate(-50%, -50%) rotate(270deg);
-            }
+    // [view more]버튼 열려있을 때 호버
+    &.opened {
+      &:hover,
+      &:focus-visible {
+        .line:first-child {
+          transform: translate(-50%, -50%) rotate(180deg);
         }
-
-
-        // [view more]버튼 열려있을 때 호버
-        &.opened {
-
-            &:hover,
-            &:focus-visible {
-                .line:first-child {
-                    transform: translate(-50%, -50%) rotate(180deg);
-                }
-            }
-        }
-
-
-        &--symbol {
-            $size: 26px;
-            position: relative;
-            width: $size;
-            height: $size;
-        }
-
-        .line {
-            display: block;
-            width: 100%;
-            height: 3px;
-            @include positionCenter;
-            @include get-color(background-color, color-bg);
-            transition: 0.3s;
-
-            &.rotate {
-                transform: translate(-50%, -50%) rotate(90deg);
-            }
-        }
+      }
     }
+
+    &--symbol {
+      $size: 26px;
+      position: relative;
+      width: $size;
+      height: $size;
+    }
+
+    .line {
+      display: block;
+      width: 100%;
+      height: 3px;
+      @include positionCenter;
+      @include get-color(background-color, color-bg);
+      transition: 0.3s;
+
+      &.rotate {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+    }
+  }
 }
 
 // 코드펜 작업울 섹션
 .codepen {
+  display: block !important;
 
-    display: block !important;
+  .section__title {
+    padding-bottom: $sectionSpace;
 
-    .section__title {
-        padding-bottom: $sectionSpace;
-
-
-        @include laptop {
-            padding-bottom: $sectionLaptop;
-        }
-
-        @include mobs {
-            padding-bottom: $sectionSpaceMobile;
-        }
+    @include laptop {
+      padding-bottom: $sectionLaptop;
     }
 
-    &__wrap {
-        position: relative;
+    @include mobs {
+      padding-bottom: $sectionSpaceMobile;
     }
+  }
 
-    &__inner {
-        position: relative;
-        width: calc(100% - 100px);
-        margin: 0 auto;
-        padding: 50px 0;
-        overflow: hidden;
-    }
+  &__wrap {
+    position: relative;
+  }
 
-    .carousel {
-        position: relative;
-        width: 100%;
-        height: 100%;
+  &__inner {
+    position: relative;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+    padding: 50px 0;
+    overflow: hidden;
+  }
 
-        &.is-mobile {
-            .slide {
-                border-radius: 0;
-                opacity: 1;
-                animation: none;
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
 
-                &.is-active {
-                    box-shadow: none;
-                }
-
-                &__img {
-                    border-radius: 15px;
-                }
-
-                &__detail {
-                    position: relative;
-                    padding: 20px;
-                    border-radius: 15px;
-                    background-color: transparent;
-                    opacity: 1;
-                }
-            }
-        }
-
-        &__wrap {
-            position: relative;
-            left: 0;
-            height: 100%;
-            display: flex;
-
-            &.moving {
-                transition: 0.5s;
-            }
-        }
-
-        &__arrow {
-            $size: 40px;
-            $svgColor: 'FFFFFF';
-
-            width: $size;
-            height: $size;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 0.5;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' width='24' height='24' baseProfile='tiny' version='1.2'%3E%3Cpath fill='%23#{$svgColor}' d='M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z'/%3E%3C/svg%3E") no-repeat center / cover;
-            transition: opacity 0.3s;
-
-            @at-root .light-theme & {
-                $svgColor: '1A2744';
-                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' width='24' height='24' baseProfile='tiny' version='1.2'%3E%3Cpath fill='%23#{$svgColor}' d='M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z'/%3E%3C/svg%3E");
-            }
-
-            &:hover,
-            &:focus-visible,
-            &:active {
-                opacity: 1;
-            }
-
-            &.prev {
-                left: 0px;
-                transform: translateY(-50%) rotate(180deg);
-            }
-
-            &.next {
-                right: 0px;
-            }
-        }
-    }
-
-    .slide {
-        $slide: &;
-
-        position: relative;
-        width: 100%;
-        height: 100%;
-        @include flexCenter(center);
-        flex-direction: column;
-        border-radius: 15px;
-        opacity: 0.7;
-        overflow: hidden;
-        cursor: pointer;
-
-        &:hover,
-        &:focus-visible,
-        &:active {
-            opacity: 1;
-
-            .slide__detail {
-                opacity: 1;
-            }
-
-            .btn::before {
-                width: 100%;
-            }
-        }
+    &.is-mobile {
+      .slide {
+        border-radius: 0;
+        opacity: 1;
+        animation: none;
 
         &.is-active {
-            position: relative;
-            box-shadow: 4px 4px 14px 4px rgba(20, 20, 20, 0.4);
-            z-index: 10;
-            animation: activeSlide 0.3s 0.3s both;
-        }
-
-        @keyframes activeSlide {
-            from {
-                opacity: 0.7;
-                transform: scale(1);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1.15);
-            }
+          box-shadow: none;
         }
 
         &__img {
-            width: 100%;
+          border-radius: 15px;
         }
 
         &__detail {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            @include flexCenter(center);
-            flex-direction: column;
-            background-color: rgba($color: #000000, $alpha: 0.7);
-            opacity: 0;
-            transition: 0.3s;
-            color: #fff;
-
-
-            &--text {
-                font-weight: 600;
-                line-height: 1.5;
-                text-align: center;
-
-                @include tablet {
-                    font-size: 16px;
-                }
-
-                @include tablet-sm {
-                    @include get-color(color, color-font);
-                }
-            }
-
-            .btn {
-                margin-top: 30px;
-                font-size: 14px;
-                padding: 10px 24px;
-                border-radius: 6px;
-                color: #1A2744;
-                border-radius: 10px;
-                background-color: #fff;
-
-                @include tablet-sm {
-                    @include get-color(color, color-bg);
-                    @include get-color(background-color, color-font);
-                }
-            }
+          position: relative;
+          padding: 20px;
+          border-radius: 15px;
+          background-color: transparent;
+          opacity: 1;
         }
+      }
     }
 
-    $modalWidth: 1600px;
+    &__wrap {
+      position: relative;
+      left: 0;
+      height: 100%;
+      display: flex;
 
-    .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
+      &.moving {
+        transition: 0.5s;
+      }
+    }
+
+    &__arrow {
+      $size: 40px;
+      $svgColor: 'FFFFFF';
+
+      width: $size;
+      height: $size;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.5;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' width='24' height='24' baseProfile='tiny' version='1.2'%3E%3Cpath fill='%23#{$svgColor}' d='M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z'/%3E%3C/svg%3E")
+        no-repeat center / cover;
+      transition: opacity 0.3s;
+
+      @at-root .light-theme & {
+        $svgColor: '1A2744';
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' width='24' height='24' baseProfile='tiny' version='1.2'%3E%3Cpath fill='%23#{$svgColor}' d='M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z'/%3E%3C/svg%3E");
+      }
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        opacity: 1;
+      }
+
+      &.prev {
+        left: 0px;
+        transform: translateY(-50%) rotate(180deg);
+      }
+
+      &.next {
+        right: 0px;
+      }
+    }
+  }
+
+  .slide {
+    $slide: &;
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include flexCenter(center);
+    flex-direction: column;
+    border-radius: 15px;
+    opacity: 0.7;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      opacity: 1;
+
+      .slide__detail {
+        opacity: 1;
+      }
+
+      .btn::before {
         width: 100%;
-        height: 100%;
-        background-color: rgba($color: #000000, $alpha: 0.7);
-        z-index: 1000;
-
-        display: none;
-
-        &__layer {
-            height: 100%;
-        }
-
-        &__wrap {
-            width: calc(100% - (100px*2));
-            max-width: $modalWidth;
-            height: 80%;
-            padding: 20px;
-            @include positionCenter;
-
-            @include tablet {
-                width: calc(100% - (60px*2));
-            }
-
-            @include tablet-sm {
-                width: calc(100% - (20px*2));
-            }
-        }
-
-        &__item {
-            height: 100%;
-
-            display: none;
-        }
+      }
     }
 
-    .cp_embed_wrapper {
-        width: 100%;
-        max-width: $modalWidth;
-        height: 100%;
-        overflow: hidden;
-        resize: both;
-
-        iframe {
-            height: 100% !important;
-        }
+    &.is-active {
+      position: relative;
+      box-shadow: 4px 4px 14px 4px rgba(20, 20, 20, 0.4);
+      z-index: 10;
+      animation: activeSlide 0.3s 0.3s both;
     }
+
+    @keyframes activeSlide {
+      from {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+    }
+
+    &__img {
+      width: 100%;
+    }
+
+    &__detail {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      @include flexCenter(center);
+      flex-direction: column;
+      background-color: rgba($color: #000000, $alpha: 0.7);
+      opacity: 0;
+      transition: 0.3s;
+      color: #fff;
+
+      &--text {
+        font-weight: 600;
+        line-height: 1.5;
+        text-align: center;
+
+        @include tablet {
+          font-size: 16px;
+        }
+
+        @include tablet-sm {
+          @include get-color(color, color-font);
+        }
+      }
+
+      .btn {
+        margin-top: 30px;
+        font-size: 14px;
+        padding: 10px 24px;
+        border-radius: 6px;
+        color: #1a2744;
+        border-radius: 10px;
+        background-color: #fff;
+
+        @include tablet-sm {
+          @include get-color(color, color-bg);
+          @include get-color(background-color, color-font);
+        }
+      }
+    }
+  }
+
+  $modalWidth: 1600px;
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    z-index: 1000;
+
+    display: none;
+
+    &__layer {
+      height: 100%;
+    }
+
+    &__wrap {
+      width: calc(100% - (100px * 2));
+      max-width: $modalWidth;
+      height: 80%;
+      padding: 20px;
+      @include positionCenter;
+
+      @include tablet {
+        width: calc(100% - (60px * 2));
+      }
+
+      @include tablet-sm {
+        width: calc(100% - (20px * 2));
+      }
+    }
+
+    &__item {
+      height: 100%;
+
+      display: none;
+    }
+  }
+
+  .cp_embed_wrapper {
+    width: 100%;
+    max-width: $modalWidth;
+    height: 100%;
+    overflow: hidden;
+    resize: both;
+
+    iframe {
+      height: 100% !important;
+    }
+  }
 }
 
 // 연락처 섹션
 .contact {
-    padding-top: $sectionSpace;
-    overflow: hidden;
+  padding-top: $sectionSpace;
+  overflow: hidden;
 
-    @include laptop {
-        padding-top: $sectionLaptop;
+  @include laptop {
+    padding-top: $sectionLaptop;
+  }
+
+  @include mobs {
+    padding-top: $sectionSpaceMobile;
+  }
+
+  &__wrap {
+    position: relative;
+    padding: 40px 0;
+  }
+
+  &__icon {
+    $size: 36px;
+
+    display: block;
+    width: $size;
+    height: $size;
+    position: absolute;
+    left: 50%;
+    background: url('#{$path-image}/ico-interest.png') no-repeat center /
+      contain;
+    opacity: 0.8;
+    z-index: -1;
+
+    @for $i from 1 through 6 {
+      $res: calc((7 + $i) / 10);
+
+      &:nth-of-type(#{$i}) {
+        transform: scale($res);
+      }
     }
+  }
+
+  .section__title {
+    text-align: center;
+  }
+
+  &__email {
+    @include flexCenter(center);
+    flex-direction: column;
+    gap: 10px;
+    padding: 100px 0;
 
     @include mobs {
-        padding-top: $sectionSpaceMobile;
+      padding: 80px 0;
     }
 
+    &--icon {
+      $size: 100px;
 
-    &__wrap {
-        position: relative;
-        padding: 40px 0;
-    }
+      display: block;
+      width: $size;
+      height: $size;
+      background: url('#{$path-image}/ico-envelope.png') no-repeat center /
+        contain;
+      animation: heartbeat 2s ease-in-out infinite both;
 
-    &__icon {
-        $size: 36px;
+      @include mobs {
+        $size: 40px;
 
-        display: block;
         width: $size;
         height: $size;
-        position: absolute;
-        left: 50%;
-        background: url('#{$path-image}/ico-interest.png') no-repeat center / contain;
-        opacity: 0.8;
-        z-index: -1;
-
-        @for $i from 1 through 6 {
-            $res : calc((7 + $i) / 10);
-
-            &:nth-of-type(#{$i}) {
-                transform: scale($res);
-            }
-
-        }
+      }
     }
 
-    .section__title {
-        text-align: center;
+    &--address {
+      font-size: 78px;
+      font-weight: 200;
+      letter-spacing: 2.5px;
+      transition: 0.3s;
+
+      @include tablet-sm {
+        font-size: 30px;
+      }
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        transform: scale(1.1);
+        @include get-color(color, color-mint);
+      }
     }
-
-    &__email {
-        @include flexCenter(center);
-        flex-direction: column;
-        gap: 10px;
-        padding: 100px 0;
-
-        @include mobs {
-            padding: 80px 0;
-        }
-
-        &--icon {
-            $size: 100px;
-
-            display: block;
-            width: $size;
-            height: $size;
-            background: url('#{$path-image}/ico-envelope.png') no-repeat center / contain;
-            animation: heartbeat 2s ease-in-out infinite both;
-
-            @include mobs {
-                $size: 40px;
-
-                width: $size;
-                height: $size;
-            }
-        }
-
-        &--address {
-            font-size: 78px;
-            font-weight: 200;
-            letter-spacing: 2.5px;
-            transition: 0.3s;
-
-            @include tablet-sm {
-                font-size: 30px;
-            }
-
-            &:hover,
-            &:focus-visible,
-            &:active {
-                transform: scale(1.1);
-                @include get-color(color, color-mint);
-            }
-        }
-    }
+  }
 }
 
 @keyframes heartbeat {
-    from {
-        transform: scale(0.99);
-        transform-origin: center center;
-        animation-timing-function: ease-out;
-    }
+  from {
+    transform: scale(0.99);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
 
-    20% {
-        transform: scale(0.93);
-        animation-timing-function: ease-in;
-    }
+  20% {
+    transform: scale(0.93);
+    animation-timing-function: ease-in;
+  }
 
-    47% {
-        transform: scale(0.99);
-        animation-timing-function: ease-out;
-    }
+  47% {
+    transform: scale(0.99);
+    animation-timing-function: ease-out;
+  }
 
-    73% {
-        transform: scale(0.91);
-        animation-timing-function: ease-in;
-    }
+  73% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
 
-    85% {
-        transform: scale(0.98);
-        animation-timing-function: ease-out;
-    }
+  85% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
 }
 
 .footer {
-    padding: 20px 0 20px;
-    font-size: 12px;
-    text-align: center;
-    @include get-color(color, color-lightblue);
+  padding: 20px 0 20px;
+  font-size: 12px;
+  text-align: center;
+  @include get-color(color, color-lightblue);
 }
 
 // 터치하는 기기일 때 스타일 대응
 .touch-device {
-    .project__view-more {
-
-        &:hover,
-        &:focus {
-            @include get-color(background-color, color-font);
-        }
+  .project__view-more {
+    &:hover,
+    &:focus {
+      @include get-color(background-color, color-font);
     }
+  }
 
-
-    .contact__email--address {
-
-        &:hover,
-        &:focus,
-        &:active {
-            @include get-color(color, color-font);
-        }
+  .contact__email--address {
+    &:hover,
+    &:focus,
+    &:active {
+      @include get-color(color, color-font);
     }
+  }
 }

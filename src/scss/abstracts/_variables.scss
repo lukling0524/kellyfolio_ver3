@@ -3,50 +3,44 @@
 // -------
 
 $colors: (
-    light: (color-bg:#FAFAFA,
-        color-font :#222222,
-        color-toggle:#227176,
-        color-mint: #39ADB5,
-        color-lightblue: #8796B0,
-    ),
-    dark: (color-bg:#1A2744,
-        color-font:#FFFFFF,
-        color-toggle: #8eb0c4,
-        color-mint: #89DDFF,
-        color-lightblue: #AFC9D3,
-    )
+  light: (
+    color-bg: #fafafa,
+    color-font: #222222,
+    color-toggle: #227176,
+    color-mint: #39adb5,
+    color-lightblue: #8796b0,
+  ),
+  dark: (
+    color-bg: #1a2744,
+    color-font: #ffffff,
+    color-toggle: #8eb0c4,
+    color-mint: #89ddff,
+    color-lightblue: #afc9d3,
+  ),
 );
 
-
 @function get-color($key, $type: 'dark') {
-
-    @each $name,
-    $color in map-get($colors, $type) {
-        @if($key ==$name) {
-            @return $color
-        }
+  @each $name, $color in map-get($colors, $type) {
+    @if ($key ==$name) {
+      @return $color;
     }
+  }
 }
 
 @mixin get-color($property, $color) {
-    #{$property}: get-color($color);
+  #{$property}: get-color($color);
 
-    @at-root .light-theme & {
-        #{$property}: get-color($color, light);
-    }
+  @at-root .light-theme & {
+    #{$property}: get-color($color, light);
+  }
 }
-
-
-
-
 
 // -------
 // z-index
 // -------
 $header: 1000;
 
-
 // -------
 // path
 // -------
-$path-image: "../images";
+$path-image: '../images';

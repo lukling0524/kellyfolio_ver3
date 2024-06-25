@@ -3,80 +3,77 @@
 // -------
 
 @mixin safariOnly {
-    @media not all and (min-resolution:.001dpcm) {
-        @supports (-webkit-appearance:none) {
-            @content;
-        }
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      @content;
     }
+  }
 }
-
-
 
 // ios
 @mixin ios {
-    @supports (-webkit-touch-callout: none) {
-        @content;
-    }
+  @supports (-webkit-touch-callout: none) {
+    @content;
+  }
 }
-
 
 //Pseudo class
 @mixin pseudo($content, $width, $height) {
-    content: $content;
-    display: block;
-    width: $width;
-    height: $height;
+  content: $content;
+  display: block;
+  width: $width;
+  height: $height;
 }
 
 // position
-@mixin position ($position, $top, $right, $bottom, $left) {
-    position: $position;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
+@mixin position($position, $top, $right, $bottom, $left) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }
 
 //position center
 @mixin positionCenter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 //Flex center align
 @mixin flexCenter($justify) {
-    display: flex;
-    justify-content: $justify;
-    align-items: center;
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
 }
 
 $w-scrollbar: 8px;
 
-//Scroll bar 
+//Scroll bar
 @mixin scrollbarY {
-    &::-webkit-scrollbar {
-        width: $w-scrollbar;
-    }
+  &::-webkit-scrollbar {
+    width: $w-scrollbar;
+  }
 
-    &::-webkit-scrollbar-button {
-        height: 0;
-    }
+  &::-webkit-scrollbar-button {
+    height: 0;
+  }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: #c1c1c1;
-        border-radius: 10px;
-    }
+  &::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border-radius: 10px;
+  }
 
-    &::-webkit-scrollbar-track {
-        background-color: #e5e5e5;
-    }
+  &::-webkit-scrollbar-track {
+    background-color: #e5e5e5;
+  }
 
-    &::-webkit-scrollbar-button:start:decrement,
-    &::-webkit-scrollbar-button:end:increment {
-        display: none !important;
-        width: 0;
-        height: 0;
-    }
+  &::-webkit-scrollbar-button:start:decrement,
+  &::-webkit-scrollbar-button:end:increment {
+    display: none !important;
+    width: 0;
+    height: 0;
+  }
 }
